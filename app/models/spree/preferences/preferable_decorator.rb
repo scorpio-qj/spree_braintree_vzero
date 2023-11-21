@@ -10,14 +10,14 @@ module Spree
         when :password
           value.to_s
         when :decimal
-          value.to_d
+          (value.presence || 0).to_s.to_d
         when :integer
           value.to_i
         when :boolean, :boolean_select
           if value.is_a?(FalseClass) ||
             value.nil? ||
             value == 0 ||
-            value =~ /^(f|false|0)$/i ||
+            value&.to_s =~ /^(f|false|0)$/i ||
             (value.respond_to?(:empty?) && value.empty?)
             false
           else

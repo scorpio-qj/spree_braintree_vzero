@@ -1,6 +1,6 @@
 module Spree
   module LogEntryDecorator
-    PERMITTED_CLASSES = [
+    LOG_ENTRY_PERMITTED_CLASSES = [
       Braintree::Errors,
       Braintree::ErrorResult,
       ActiveMerchant::Billing::Response,
@@ -44,7 +44,7 @@ module Spree
     private
 
     def permitted_classes
-      PERMITTED_CLASSES
+      LOG_ENTRY_PERMITTED_CLASSES
     end
   end
 end
